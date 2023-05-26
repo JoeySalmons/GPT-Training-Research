@@ -1,3 +1,25 @@
+# Purpose
+
+This fork looks into comparing several different factors of training GPT models, such as the use of various synthetic data and training settings.
+
+Ideally, this project will end up being used to determine whether or not training LLMs on lots of high-quality synthetic data as pre-training would be better than the current method of pre-training on data scraped from the web. My guess is that current methods of training could benefit from an addition of synthetic data that takes the form of text-based IQ tests. This data would consist of many series of examples of many unique patterns. Any pattern that could be represented linearly would work, like most text normally is. However, the goal of this data is not to contain information about the world like most language data does.
+
+To be specific, this data would consist of things like:
+
+Board game moves (chess, checkers, go, othello, etc. and every possible variation of these)
+Math equations / functions (Arithmetic, simple linear to partial differential equations?)
+Logic statements - evaluate equations to simple True or False
+Encoding/decoding - base64, caesar/substitution cipher, morse code, etc.
+Simulated data (physics simulations, etc.)
+Protein folding, molecular dynamics(?)
+Computer code/hardware simulation
+Generated examples of deductive reasoning?
+Combinations of all of the above, randomized tokens used for each set of examples, red-herrings / random noise and/or extra unneeded patterns within sets of examples
+
+These would all require the language model to learn in-context learning / pattern recognition. Some of the above examples might require fairly large contexts for the model to work with, but most should not require more than 1k tokens to work with. I have no idea how many possible unique patterns like these exist that could be used to train a model on, but presumably there are many more than what is listed above that would be easy to generate a large amount of data for.
+
+As of 5/26/23, I have only implemented a method of generating arithmetic problems with 2 numbers in any base using any single-character symbols for each base (for training on character-token models).
+
 
 # nanoGPT
 
