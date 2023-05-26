@@ -6,22 +6,22 @@ Ideally, this project will end up being used to determine whether or not trainin
 
 To be specific, this data would consist of things like:
 
-Board game moves (chess, checkers, go, othello, etc. and every possible variation of these)
-Math equations / functions (Arithmetic, simple linear to partial differential equations?)
-Logic statements - evaluate equations to simple True or False
-Encoding/decoding - base64, caesar/substitution cipher, morse code, etc.
-Simulated data (physics simulations, etc.)
-Protein folding, molecular dynamics(?)
-Computer code/hardware simulation
-Generated examples of deductive reasoning?
-Combinations of all of the above, randomized tokens used for each set of examples, red-herrings / random noise and/or extra unneeded patterns within sets of examples
+- Board game moves (chess, checkers, go, othello, etc. and every possible variation of these)
+- Math equations / functions (Arithmetic, simple linear to partial differential equations?)
+- Logic statements - evaluate equations to simple True or False
+- Encoding/decoding - base64, caesar/substitution cipher, morse code, etc.
+- Simulated data (physics simulations, etc.)
+- Protein folding, molecular dynamics(?)
+- Computer code/hardware simulation
+- Generated examples of deductive reasoning?
+- Combinations of all of the above, randomized tokens used for each set of examples, red-herrings / random noise and/or extra unneeded patterns within sets of examples
 
 These would all require the language model to learn in-context learning / pattern recognition. Some of the above examples might require fairly large contexts for the model to work with, but most should not require more than 1k tokens to work with. I have no idea how many possible unique patterns like these exist that could be used to train a model on, but presumably there are many more than what is listed above that would be easy to generate a large amount of data for.
 
-As of 5/26/23, I have only implemented a method of generating arithmetic problems with 2 numbers in any base using any single-character symbols for each base (for training on character-token models).
+As of 5/26/23, I have only implemented a method of generating arithmetic problems with 2 numbers in any base using any single-character symbols for each base (for training on character-token models). This code and the rest of the changes should be uploaded shortly.
 
 
-# nanoGPT
+# nanoGPT (original readme)
 
 ![nanoGPT](assets/nanogpt.jpg)
 
