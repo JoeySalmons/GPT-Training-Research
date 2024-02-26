@@ -21,7 +21,7 @@ These would all require the language model to learn in-context learning / patter
 As of 5/26/23, I have only implemented a method of generating arithmetic problems with 2 numbers in any base using any single-character symbols for each base (for training on character-token models).
 
 
-Update 2/26/24
+### Update 2/26/24
 
 Training code uploaded.
 
@@ -39,6 +39,12 @@ As seen from the above graphs, adjusting the LR (in this case by modifying the t
 
 The code is still in development and is not very well organized or cleaned of extra comments or unused code.
 
+
+# How to start training
+train_loop.py is used to train a model on adding two numbers in a base up to base 62. The base symbols can be randomized during training by setting randomize_base_symbols=True (currently set to True by default).
+Variables are currently hardcoded and must be manually adjusted. The training can loop over a range of hyperparameter values (currently only LR) for testing.
+The training will automatically start logging using WandB.
+After training, a plot .png will be generated that shows various training stats and settings, the loss during training, the accuracy of the model, and a few values that attempt to measure how well the model is learning. Examples of what these plots look like are shown above under "Update 2/26/24".
 
 
 # nanoGPT (original readme)
