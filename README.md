@@ -18,7 +18,27 @@ To be specific, this data would consist of things like:
 
 These would all require the language model to learn in-context learning / pattern recognition. Some of the above examples might require fairly large contexts for the model to work with, but most should not require more than 1k tokens to work with. I have no idea how many possible unique patterns like these exist that could be used to train a model on, but presumably there are many more than what is listed above that would be easy to generate a large amount of data for.
 
-As of 5/26/23, I have only implemented a method of generating arithmetic problems with 2 numbers in any base using any single-character symbols for each base (for training on character-token models). This code and the rest of the changes should be uploaded shortly.
+As of 5/26/23, I have only implemented a method of generating arithmetic problems with 2 numbers in any base using any single-character symbols for each base (for training on character-token models).
+
+
+Update 2/26/24
+
+Training code uploaded.
+
+1.19M param network can learn to add two numbers in base 62 with about 19 million examples (total of about 650M tokens seen during training)
+)n_layer = 6, n_head = 4, n_embd = 128)
+![run-20231106_124401-pwwpvcqr_stats](https://github.com/JoeySalmons/GPT-Training-Research/assets/109872368/22a3d0fb-5a55-45fa-8828-4b7f8dfbfe22)
+
+6.72M param network can learn to add base 4 numbers together when the values of the base symbols are randomly swapped during training (forces the model to figure out which base is being used by looking at examples in its context window).
+(n_layer = 3, n_head = 3, n_embd = 432)
+![run-20240225_094125-076ilegz_stats](https://github.com/JoeySalmons/GPT-Training-Research/assets/109872368/e4a43b7a-a513-4a41-8318-0482cd79f29b)
+
+![run-20240225_121650-km3zasa9_stats](https://github.com/JoeySalmons/GPT-Training-Research/assets/109872368/ea82c38a-f7a5-4496-9bce-9872d8c17008)
+
+As seen from the above graphs, adjusting the LR (in this case by modifying the total training steps while keeping starting and min LR the same) can make the model learn much faster (reducing the number of tokens seen during training before reaching near-optimal loss by about 1/3, or from 1B to 330M tokens)
+
+The code is still in development and is not very well organized or cleaned of extra comments or unused code.
+
 
 
 # nanoGPT (original readme)
